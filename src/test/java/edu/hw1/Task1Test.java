@@ -3,6 +3,8 @@ package edu.hw1;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import static org.junit.jupiter.api.Assertions.*;
 
 class Task1Test {
@@ -52,25 +54,10 @@ class Task1Test {
         org.assertj.core.api.Assertions.assertThat(durationInSeconds).isEqualTo(-1);
     }
 
-    @Test
-    @DisplayName("Неправильный формат")
-    void invalidFormat() {
-        // given
-        String duration = "23:59:59";
-        // when
+    @ParameterizedTest
+    @ValueSource(strings = {"aa:aa", "20 minutes"})
+    void invalidFormat(String duration) {
         int durationInSeconds = task1.minutesToSeconds(duration);
-        // then
-        org.assertj.core.api.Assertions.assertThat(durationInSeconds).isEqualTo(-1);
-    }
-
-    @Test
-    @DisplayName("Некорректная строка")
-    void invalidString() {
-        // given
-        String duration = "20 minutes";
-        // when
-        int durationInSeconds = task1.minutesToSeconds(duration);
-        // then
         org.assertj.core.api.Assertions.assertThat(durationInSeconds).isEqualTo(-1);
     }
 }

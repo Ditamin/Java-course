@@ -9,11 +9,14 @@ public class Task8 {
     }
 
     public boolean knightBoardCapture(int[][] board) {
-        for (int x = 0; x < size; ++x) {
-            for (int y = 0; y < size; ++y) {
-                if (board[x][y] == 1) {
+        for (int x1 = 0; x1 < size; ++x1) {
+            for (int y1 = 0; y1 < size; ++y1) {
+                if (board[x1][y1] == 1) {
                     for (var move : moves) {
-                        if (onBoard(x + move[0], y + move[1]) && (board[x + move[0]][y + move[1]] == 1)) {
+                        int x2 = x1 + move[0];
+                        int y2 = y1 + move[1];
+
+                        if (onBoard(x2, y2) && (board[x2][y2] == 1)) {
                             return false;
                         }
                     }
