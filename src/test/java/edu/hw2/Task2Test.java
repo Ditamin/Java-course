@@ -22,26 +22,23 @@ class Task2Test {
         rect.setWidth(20);
         rect.setHeight(10);
 
-        assertThat(rect.area()).isEqualTo(200.0);
+        assertThat(rect.area()).isEqualTo(0);
+        assertThat(rect.setHeight(10).setWidth(20).area()).isEqualTo(200);
     }
 
     @Test
-    void rectangle() {
-        var rect = new Rectangle();
-
-        rect.setWidth(20);
-        rect.setHeight(10);
-
-        assertThat(rect.area()).isEqualTo(200.0);
+    void squareTest() {
+        var square = new Square(2);
+        assertThat(square.area()).isEqualTo(4);
+        assertThat(square.setWidth(5).area()).isEqualTo(10);
+        assertThat(square.setHeight(5).area()).isEqualTo(10);
     }
 
     @Test
-    void square() {
-        var square = new Square();
-
-        square.setWidth(20);
-        square.setHeight(10);
-
-        assertThat(square.area()).isEqualTo(100.0);
+    void rectangleTest() {
+        var rect = new Rectangle(2, 3);
+        assertThat(rect.area()).isEqualTo(6);
+        assertThat(rect.setWidth(5).area()).isEqualTo(15);
+        assertThat(rect.setHeight(5).area()).isEqualTo(10);
     }
 }

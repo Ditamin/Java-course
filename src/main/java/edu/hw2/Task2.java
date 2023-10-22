@@ -2,15 +2,24 @@ package edu.hw2;
 
 public class Task2 {
     public static class Rectangle {
-        private int width;
-        private int height;
+        final private int width;
+        final private int height;
 
-        void setWidth(int width) {
-            this.width = width;
+        Rectangle() {
+            this(0, 0);
         }
 
-        void setHeight(int height) {
+        Rectangle(int width, int height) {
+            this.width = width;
             this.height = height;
+        }
+
+        Rectangle setWidth(int width) {
+            return new Rectangle(width, this.height);
+        }
+
+        Rectangle setHeight(int height) {
+            return new Rectangle(this.width, height);
         }
 
         double area() {
@@ -19,17 +28,12 @@ public class Task2 {
     }
 
     public static class Square extends Rectangle {
-        @Override
-        void setWidth(int width) {
-            super.setHeight(width);
-            super.setWidth(width);
+        Square() {
+            this(0);
         }
 
-        @Override
-        void setHeight(int height) {
-            super.setHeight(height);
-            super.setWidth(height);
+        Square(int side) {
+            super(side, side);
         }
     }
-
 }
