@@ -20,9 +20,10 @@ class GameTest {
     @DisplayName("Проверка команды exit")
     void exitTest() {
         String word = "test";
+        String input = "exit";
         commandHandler.addWord(word);
-        Scanner scanner = new Scanner("exit");
-        Game game = new Game(word, scanner);
+        Game game = new Game(word);
+        game.setScanner(new Scanner(input));
         Assertions.assertThat(game.start()).isEqualTo(GAME_OVER_MESSAGE);
     }
 
@@ -32,8 +33,8 @@ class GameTest {
         String word = "test";
         String input = "t\ns\ne";
         commandHandler.addWord(word);
-        Scanner scanner = new Scanner(input);
-        Game game = new Game(word, scanner);
+        Game game = new Game(word);
+        game.setScanner(new Scanner(input));
         Assertions.assertThat(game.start()).isEqualTo(GAME_OVER_MESSAGE + WIN_MESSAGE);
     }
 
@@ -44,7 +45,8 @@ class GameTest {
         String input = "a\nb\nc\nd\nf";
         commandHandler.addWord(word);
         Scanner scanner = new Scanner(input);
-        Game game = new Game(word, scanner);
+        Game game = new Game(word);
+        game.setScanner(new Scanner(input));
         Assertions.assertThat(game.start()).isEqualTo(GAME_OVER_MESSAGE + LOSE_MESSAGE);
     }
 
@@ -56,7 +58,8 @@ class GameTest {
         String input = firstInput + "b\nc\nd\ne\na";
         commandHandler.addWord(word);
         Scanner scanner = new Scanner(input);
-        Game game = new Game(word, scanner);
+        Game game = new Game(word);
+        game.setScanner(new Scanner(input));
         Assertions.assertThat(game.start()).isEqualTo(GAME_OVER_MESSAGE + WIN_MESSAGE);
     }
 }

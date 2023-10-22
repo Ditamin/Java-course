@@ -26,8 +26,12 @@ public class CommandLineParser {
         """;
 
     private final static Logger LOGGER = LogManager.getLogger();
-    private final Scanner scanner = new Scanner(System.in);
+    private Scanner scanner = new Scanner(System.in);
     private final CommandHandler commandHandler = new CommandHandler();
+
+    void setScanner(Scanner scanner) {
+        this.scanner = scanner;
+    }
 
     public void run() {
         String input = null;

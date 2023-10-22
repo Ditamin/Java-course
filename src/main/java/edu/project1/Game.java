@@ -27,19 +27,8 @@ public class Game {
     private final static Logger LOGGER = LogManager.getLogger();
     private Scanner scanner = new Scanner(System.in);
 
-    Game(String word, Scanner scanner) {
-        hiddenWord = word;
-        letterAmount = new ArrayList<>(ALPHABET_SIZE);
+    void setScanner(Scanner scanner) {
         this.scanner = scanner;
-
-        for (int i = 0; i < ALPHABET_SIZE; ++i) {
-            letterAmount.add(0);
-        }
-
-        for (int i = 0; i < word.length(); ++i) {
-            int idx = word.charAt(i) - FIRST_LETTER;
-            letterAmount.set(idx, letterAmount.get(idx) + 1);
-        }
     }
 
     Game(String word) {
