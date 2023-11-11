@@ -25,7 +25,7 @@ public class Task8 {
         return Pattern.matches("^(1[01])*1?$", s);
     }
 
-    public static boolean isAtLeastTwoNullAnsOneUnit(String s) {
+    public static boolean isAtLeastTwoNullAndOneUnit(String s) {
         return Pattern.matches("^0{2,}1?0*$|^0{1,}10{1,}$|^10{2,}$", s);
     }
 

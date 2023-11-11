@@ -72,13 +72,13 @@ class Task8Test {
     @ParameterizedTest
     @ValueSource(strings = {"00", "00001", "01000", "10000", "00000"})
     void isAtLeastTwoNullAndOneUnitReturnTrueTest(String s) {
-        Assertions.assertThat(Task8.isAtLeastTwoNullAnsOneUnit(s)).isEqualTo(true);
+        Assertions.assertThat(Task8.isAtLeastTwoNullAndOneUnit(s)).isEqualTo(true);
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"0110", "10", "00011", "10000010", ""})
     void isAtLeastTwoNullAndOneUnitReturnFalseTest(String s) {
-        Assertions.assertThat(Task8.isAtLeastTwoNullAnsOneUnit(s)).isEqualTo(false);
+        Assertions.assertThat(Task8.isAtLeastTwoNullAndOneUnit(s)).isEqualTo(false);
     }
 
 
