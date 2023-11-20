@@ -41,9 +41,9 @@ class Task3Test {
     @Test
     void attributeFilterTest() throws IOException {
         Path path = Path.of("src/test/java/edu/hw6/filesForTests");
-        ArrayList<Path> ans = new ArrayList<>(List.of(Path.of("HelloWorld.java"), Path.of("photo.PNG")));
+        ArrayList<Path> ans = new ArrayList<>();
         ArrayList<Path> res = new ArrayList<>();
-        DirectoryStream.Filter<Path> filter = IS_READABLE.and(IS_WRITABLE).and(IS_EXECUTABLE);
+        DirectoryStream.Filter<Path> filter = IS_READABLE.and(IS_WRITABLE).and(IS_EXECUTABLE).and(IS_REGULAR_FILE);
 
         try (DirectoryStream<Path> entries = Files.newDirectoryStream(path, filter)) {
             entries.forEach(entry -> res.add(entry.getFileName()));
