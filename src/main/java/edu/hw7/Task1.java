@@ -6,7 +6,7 @@ public class Task1 {
     private Task1() {}
 
     public static class Counter {
-        private static AtomicInteger counter = new AtomicInteger(0);
+        private AtomicInteger counter = new AtomicInteger(0);
 
         synchronized void increment() {
             counter.incrementAndGet();
