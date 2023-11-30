@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 
 public class Task1 {
     public class DiskMap {
+        private final static String COLON = ":";
         File disk;
 
         public DiskMap() {
@@ -23,7 +24,7 @@ public class Task1 {
         public void write(Map<String, String> data) {
             try (FileWriter writer = new FileWriter(disk)) {
                 for (var entry : data.entrySet()) {
-                    writer.write(entry.getKey() + ':' + entry.getValue() + '\n');
+                    writer.write(entry.getKey() + COLON + entry.getValue() + '\n');
                 }
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -34,9 +35,9 @@ public class Task1 {
             try (BufferedReader reader = new BufferedReader(new FileReader(disk))) {
                 return reader.lines().collect(Collectors.toMap(
                     (String entry) -> {
-                        return entry.split(":")[0]; },
+                        return entry.split(COLON)[0]; },
                     (String entry) -> {
-                        return entry.split(":")[1]; })
+                        return entry.split(COLON)[1]; })
                 );
             } catch (IOException e) {
                 throw new RuntimeException(e);
